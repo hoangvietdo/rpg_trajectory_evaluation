@@ -12,6 +12,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import rc
 rc('font', **{'family': 'serif', 'serif': ['Cardo']})
 rc('text', usetex=True)
+plt.rcParams.update({'font.size': 11})
 
 FORMAT = '.pdf'
 
@@ -42,7 +43,7 @@ def boxplot_compare(ax, xlabels,
         # print("Positions: {0}".format(positions))
         bp = ax.boxplot(d, 0, '', positions=positions, widths=widths)
         color_box(bp, data_colors[idx])
-        tmp, = plt.plot([1, 1], c=data_colors[idx], alpha=0)
+        tmp, = plt.plot([1, 1], data_colors[idx])
         leg_handles.append(tmp)
         leg_labels.append(data_labels[idx])
         idx += 1
@@ -62,6 +63,7 @@ def plot_trajectory_top(ax, pos, color, name, alpha=1.0):
     ax.grid(ls='--', color='0.7')
     # pos_0 = pos - pos[0, :]
     ax.plot(pos[:, 0], pos[:, 1], color, linestyle='-', alpha=alpha, label=name)
+    # ax.plot(pos[:, 1], pos[:, 0], color, linestyle='-', alpha=alpha, label=name)
 
 
 def plot_trajectory_side(ax, pos, color, name, alpha=1.0):
