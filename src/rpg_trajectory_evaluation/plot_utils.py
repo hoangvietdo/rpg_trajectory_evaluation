@@ -65,6 +65,10 @@ def plot_trajectory_top(ax, pos, color, name, alpha=1.0):
     ax.plot(pos[:, 0], pos[:, 1], color, linestyle='-', alpha=alpha, label=name)
     # ax.plot(pos[:, 1], pos[:, 0], color, linestyle='-', alpha=alpha, label=name)
 
+def plot_trajectory_top_horizontal(ax, pos, color, name, alpha=1.0):
+    ax.grid(ls='--', color='0.7')
+    # pos_0 = pos - pos[0, :]
+    ax.plot(pos[:, 1], pos[:, 0], color, linestyle='-', alpha=alpha, label=name)
 
 def plot_trajectory_side(ax, pos, color, name, alpha=1.0):
     ax.grid(ls='--', color='0.7')
